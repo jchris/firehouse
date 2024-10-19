@@ -2,9 +2,6 @@
   "$schema": "https://www.partykit.io/schema.json",
   "name": "firehouse-chat",
   "main": "src/server.ts",
-  "parties": {
-    "fireproof": "node_modules/@fireproof/partykit/src/server.ts"
-  },
   "compatibilityDate": "2024-02-09",
   "serve": {
     "path": "public",

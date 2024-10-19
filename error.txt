@@ -1,0 +1,54 @@
+
+> react-fireproof@0.0.0 dev
+> partykit dev --live
+
+🎈 PartyKit v0.0.106
+---------------------
+
+[2K[1A[2K[G
+[2K[1A[2K[G
+  ERROR Build failed with 10 errors:
+       node_modules/.pnpm/@fireproof+core@0.19.103_react@18.3.1_typescript@5.6.
+       3/node_modules/@fireproof/core/node-filesystem-INX4ZTHE.js:10:27: ERROR:
+        Could not resolve "node:fs/promises"
+       node_modules/.pnpm/memfs@4.14.0/node_modules/memfs/lib/internal/errors.j
+       s:11:23: ERROR: Could not resolve "assert"
+       node_modules/.pnpm/memfs@4.14.0/node_modules/memfs/lib/internal/errors.j
+       s:12:21: ERROR: Could not resolve "util"
+       node_modules/.pnpm/memfs@4.14.0/node_modules/memfs/lib/node.js:7:25:
+       ERROR: Could not resolve "events"
+       node_modules/.pnpm/memfs@4.14.0/node_modules/memfs/lib/volume.js:8:27:
+       ERROR: Could not resolve "path"
+       ...
+
+ -node_modules/.pnpm/@fireproof+core@0.19.103_react@18.3.1_typescript@5.6.3/nod
+  e_modules/@fireproof/core/node-filesystem-INX4ZTHE.js:10:27: ERROR: Could not
+   resolve "node:fs/promises"
+ -node_modules/.pnpm/memfs@4.14.0/node_modules/memfs/lib/internal/errors.js:11:
+  23: ERROR: Could not resolve "assert"
+ -node_modules/.pnpm/memfs@4.14.0/node_modules/memfs/lib/internal/errors.js:12:
+  21: ERROR: Could not resolve "util"
+ - node_modules/.pnpm/memfs@4.14.0/node_modules/memfs/lib/node.js:7:25: ERROR:
+   Could not resolve "events"
+ -node_modules/.pnpm/memfs@4.14.0/node_modules/memfs/lib/volume.js:8:27: ERROR:
+   Could not resolve "path"
+ - ...
+ -failureErrorWit (node_modules/.pnpm/esbuild@0.20.2/node_modules/esbuild/lib/m
+  Log            ain.js:1651:15)
+ - (node_modules/.pnpm/esbuild@0.20.2/node_modules/esbuild/lib/main.js:1059:25)
+
+ - (node_modules/.pnpm/esbuild@0.20.2/node_modules/esbuild/lib/main.js:1004:52)
+
+ -buildResponseToRe (node_modules/.pnpm/esbuild@0.20.2/node_modules/esbuild/lib
+  ult              /main.js:1057:7)
+ - (node_modules/.pnpm/esbuild@0.20.2/node_modules/esbuild/lib/main.js:1086:16)
+
+ -responseCallbacks.<co (node_modules/.pnpm/esbuild@0.20.2/node_modules/esbuild
+  puted>               /lib/main.js:704:9)
+ -handleIncomingPa (node_modules/.pnpm/esbuild@0.20.2/node_modules/esbuild/lib/
+  ket             main.js:764:9)
+ -Socket.readFromSt (node_modules/.pnpm/esbuild@0.20.2/node_modules/esbuild/lib
+  out              /main.js:680:7)
+ - Socket.emit (node:events:518:28)
+ - addChunk (node:internal/streams/readable:559:12)
+
