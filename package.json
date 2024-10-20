@@ -7,8 +7,8 @@
     "deploy": "partykit deploy"
   },
   "dependencies": {
-    "@fireproof/cloud": "^0.19.103",
-    "@fireproof/core": "^0.19.103",
+    "@fireproof/cloud": "^0.19.111",
+    "@fireproof/core": "^0.19.111",
     "gravatar": "^1.8.2",
     "openai": "^4.28.0",
     "multiformats": "^4.4.1",
@@ -16,7 +16,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.0",
-    "use-fireproof": "^0.19.103"
+    "use-fireproof": "^0.19.111"
   },
   "devDependencies": {
     "@types/gravatar": "^1.8.6",

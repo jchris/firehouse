@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@fireproof/cloud':
-        specifier: ^0.19.103
-        version: 0.19.103(react@18.3.1)(typescript@5.6.3)
+        specifier: ^0.19.111
+        version: 0.19.111(react@18.3.1)(typescript@5.6.3)
       '@fireproof/core':
-        specifier: ^0.19.103
-        version: 0.19.103(react@18.3.1)(typescript@5.6.3)
+        specifier: ^0.19.111
+        version: 0.19.111(react@18.3.1)(typescript@5.6.3)
       gravatar:
         specifier: ^1.8.2
         version: 1.8.2
@@ -36,8 +36,8 @@ importers:
         specifier: ^6.22.0
         version: 6.27.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       use-fireproof:
-        specifier: ^0.19.103
-        version: 0.19.103(react@18.3.1)(typescript@5.6.3)
+        specifier: ^0.19.111
+        version: 0.19.111(react@18.3.1)(typescript@5.6.3)
     devDependencies:
       '@types/gravatar':
         specifier: ^1.8.6
@@ -411,11 +411,11 @@ packages:
     resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
     engines: {node: '>=14'}
 
-  '@fireproof/cloud@0.19.103':
-    resolution: {integrity: sha512-ZhB+23f3J5XZrm31PuGeAoEHN3n0GedptXOCuorPdqzf1YJa5X/rZW1a3S8WxmiRowptWQhiN1SYLTRvvh/OIw==}
+  '@fireproof/cloud@0.19.111':
+    resolution: {integrity: sha512-VHHc1nQw2CJUl7o+e2MBtEG/RM2KOK72nYpcu8tOlOlFmIvvWAeK0peZtTIyamqF9aShVSSTMwmS+rst1ziLzg==}
 
-  '@fireproof/core@0.19.103':
-    resolution: {integrity: sha512-SbL68C//SKPDkj7SBhmMs92sABmGdzizCrYBBws0WMDA+m+3Znn8hwnZ8aA3KwhJcgK+pPHyreHe1ez02PeL5g==}
+  '@fireproof/core@0.19.111':
+    resolution: {integrity: sha512-LJsXkGpMtDIvabX8YU24x33BV/oL1o6XdDAfbC2TpoRyNZ8pkqohibzHor+LFriMdRLtO2yqPkad2XnKgRZOqw==}
     peerDependencies:
       react: '>=18.0.0'
 
@@ -990,6 +990,9 @@ packages:
   partysocket@0.0.25:
     resolution: {integrity: sha512-1oCGA65fydX/FgdnsiBh68buOvfxuteoZVSb3Paci2kRp/7lhF0HyA8EDb5X/O6FxId1e+usPTQNRuzFEvkJbQ==}
 
+  partysocket@1.0.2:
+    resolution: {integrity: sha512-rAFOUKImaq+VBk2B+2RTBsWEvlnarEP53nchoUHzpVs8V6fG2/estihOTslTQUWHVuHEKDL5k8htG8K3TngyFA==}
+
   path-exists@4.0.0:
     resolution: {integrity: sha512-ak9Qy5Q7jYb2Wwcey5Fpvg2KoAc/ZIhLSLOSBmRmygPsGwkVVt0fZa0qrtMz+m6tJTAHfZQ8FnmB4MG4LWy7/w==}
     engines: {node: '>=8'}
@@ -1170,8 +1173,8 @@ packages:
     resolution: {integrity: sha512-72RFADWFqKmUb2hmmvNODKL3p9hcB6Gt2DOQMis1SEBaV6a4MH8soBvzg+95CYhCKPFedut2JY9bMfrDl9D23g==}
     engines: {node: '>=14.0'}
 
-  use-fireproof@0.19.103:
-    resolution: {integrity: sha512-jNhOllyxleBixlQ09iHB8VXJKDSt+7hkgf8EAJDzgYhcQgAuF7CslTiwW3YUJoshnr9IluwEJwnM1OW6ceDWTQ==}
+  use-fireproof@0.19.111:
+    resolution: {integrity: sha512-bmRWaYrtyq0+2ewDj0cLJ8FQL3osUe0j7p89DT2dQ13sji5Td2oTXWgXZVfTPCbC8LF6qW4zXVQ4Cks4SToEaw==}
     peerDependencies:
       react: '>=18.0.0'
 
@@ -1444,11 +1447,13 @@ snapshots:
 
   '@fastify/busboy@2.1.1': {}
 
-  '@fireproof/cloud@0.19.103(react@18.3.1)(typescript@5.6.3)':
+  '@fireproof/cloud@0.19.111(react@18.3.1)(typescript@5.6.3)':
     dependencies:
-      '@fireproof/core': 0.19.103(react@18.3.1)(typescript@5.6.3)
+      '@adviser/cement': 0.2.34(typescript@5.6.3)
+      '@fireproof/core': 0.19.111(react@18.3.1)(typescript@5.6.3)
       cross-fetch: 4.0.0
       partykit: 0.0.110
+      partysocket: 1.0.2
     transitivePeerDependencies:
       - bufferutil
       - encoding
@@ -1457,7 +1462,7 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@fireproof/core@0.19.103(react@18.3.1)(typescript@5.6.3)':
+  '@fireproof/core@0.19.111(react@18.3.1)(typescript@5.6.3)':
     dependencies:
       '@adviser/cement': 0.2.34(typescript@5.6.3)
       '@ipld/car': 5.3.2
@@ -2132,6 +2137,10 @@ snapshots:
     dependencies:
       event-target-shim: 6.0.2
 
+  partysocket@1.0.2:
+    dependencies:
+      event-target-shim: 6.0.2
+
   path-exists@4.0.0: {}
 
   path-key@3.1.1: {}
@@ -2294,7 +2303,7 @@ snapshots:
     dependencies:
       '@fastify/busboy': 2.1.1
 
-  use-fireproof@0.19.103(react@18.3.1)(typescript@5.6.3):
+  use-fireproof@0.19.111(react@18.3.1)(typescript@5.6.3):
     dependencies:
       '@adviser/cement': 0.2.34(typescript@5.6.3)
       '@ipld/car': 5.3.2
@@ -2304,6 +2313,7 @@ snapshots:
       charwise: 3.0.1
       idb: 8.0.0
       ipfs-unixfs-exporter: 13.6.1
+      multiformats: 13.3.0
       p-limit: 6.1.0
       p-map: 7.0.2
       p-retry: 6.2.0
