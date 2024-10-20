@@ -5,6 +5,7 @@ import { fireproof, type Database } from '@fireproof/core'
 import { makeStores, ConnectS3 } from '@fireproof/connect'
 import { ConnectPartyKit } from '@fireproof/partykit'
 import type { MessageDoc } from './types'
+// import { connect } from '@fireproof/cloud'
 
 import { AI } from './ai'
 

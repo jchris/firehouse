@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import gravatar from 'gravatar'
 
 import { useFireproof } from 'use-fireproof'
-import { connect } from '@fireproof/partykit'
+import { connect } from '@fireproof/cloud'
 import { Message } from './Message'
 import { MessageForm } from './MessageForm'
 import usePartySocket from 'partysocket/react'
@@ -40,8 +40,8 @@ const Channel: React.FC = () => {
 const InnerChannel: React.FC<{ id: string; thread?: MessageDoc }> = ({ id, thread }) => {
   const { database, useDocument, useLiveQuery } = useFireproof(id)
 
-  // @ts-expect-error does not exist
-  connect.partykitS3(database, PARTYKIT_HOST as string)
+  // x@ts-expect-error does not exist
+  // connect(database)
 
   const socket = usePartySocket({
     room: id,

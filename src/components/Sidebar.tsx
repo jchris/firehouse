@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom';
 import { useFireproof } from 'use-fireproof'
-import { connect } from '@fireproof/partykit'
+import { connect } from '@fireproof/cloud'
 
 import styles from './Sidebar.module.css'
 
@@ -13,8 +13,8 @@ const Sidebar: React.FC<{
 }> = ({ isMobChannelsOpen, onSetIsMobChannelsOpen, isNewChannelOpen, onSetIsNewChannelOpen }) => {
   const { database, useDocument, useLiveQuery } = useFireproof('_channels')
 
-  // @ts-expect-error does not exist
-  connect.partykitS3(database, PARTYKIT_HOST as string)
+  // x@ts-expect-error does not exist
+  // connect(database)
 
   const channels = useLiveQuery('name').docs as { name: string; _id: string; description: string }[]
 
