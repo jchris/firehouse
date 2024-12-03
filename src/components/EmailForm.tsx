@@ -8,8 +8,8 @@ export const EmailForm: React.FC<{
 }> = ({ handleSetEmail, onSetIsEmailOpen }) => {
   const [email, setEmail] = React.useState('')
 
-  function handleClick(e) {
-   if (!e.target.closest('form')) onSetIsEmailOpen(false)
+  function handleClick(e: React.MouseEvent<HTMLDivElement>) {
+   if (!(e.target as HTMLDivElement).closest('form')) onSetIsEmailOpen(false)
   }
 
   return (

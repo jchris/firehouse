@@ -3,8 +3,7 @@ import React, { useState } from 'react'
 import styles from './MessageForm.module.css'
 
 export const MessageForm: React.FC<{ gravatar: string, handleAddMessage: (message: string) => void }> = ({
-  handleAddMessage,
-  gravatar
+  handleAddMessage
 }) => {
   const [message, setMessage] = useState('')
 

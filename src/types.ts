@@ -15,3 +15,10 @@ export interface ReactionDoc {
   profileImg: string
   _id?: string
 }
+
+export interface ChannelDoc {
+  created?: number
+  name?: string
+  description?: string
+  _id?: string
+}

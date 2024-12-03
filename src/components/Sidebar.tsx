@@ -1,24 +1,22 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link, NavLink } from 'react-router-dom';
 import { useFireproof } from 'use-fireproof'
-import { connect } from '@fireproof/partykit'
 
 import styles from './Sidebar.module.css'
+import {ChannelDoc} from "../types.ts";
 
 const Sidebar: React.FC<{ 
   isMobChannelsOpen: boolean,
-  onSetIsMobChannelsOpen: () => void,
+  onSetIsMobChannelsOpen: (flag: boolean) => void,
   isNewChannelOpen: boolean,
-  onSetIsNewChannelOpen : () => void
+  onSetIsNewChannelOpen : (flag: boolean) => void
 }> = ({ isMobChannelsOpen, onSetIsMobChannelsOpen, isNewChannelOpen, onSetIsNewChannelOpen }) => {
-  const { database, useDocument, useLiveQuery } = useFireproof('_channels')
+  const { useLiveQuery } = useFireproof('_channels')
 
-  // @ts-expect-error does not exist
-  connect.partykitS3(database, PARTYKIT_HOST as string)
 
-  const channels = useLiveQuery('name').docs as { name: string; _id: string; description: string }[]
+  const channels = useLiveQuery<ChannelDoc>('name').docs as { name: string; _id: string; description: string }[]
 
-  const handleClick = (e) => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (isNewChannelOpen) {
       e.preventDefault()
       history.go(-1)
@@ -44,7 +42,7 @@ const Sidebar: React.FC<{
       <h2 className={`${styles.channelsHeading} ${isMobChannelsOpen ? styles.open : ''}`}>channels</h2>
       <SidebarMobNav isMobChannelsOpen={isMobChannelsOpen} onSetIsMobChannelsOpen={onSetIsMobChannelsOpen} />
       <ul className={`${styles.channelList} ${isMobChannelsOpen ? styles.open : ''}`}>
-        {channels.sort((a, b) => b.created - a.created).map(channel => (
+        {channels.sort((a: ChannelDoc, b: ChannelDoc) => b.created! - a.created!).map(channel => (
           <li key={channel._id}>
             <NavLink
               to={`/channel/${channel.name}`}
@@ -63,11 +61,16 @@ const Sidebar: React.FC<{
 
 export { Sidebar }
 
-const SidebarMobNav: React.FC<{ isMobChannelsOpen: boolean, onSetIsMobChannelsOpen: () => void }> = ({ isMobChannelsOpen, onSetIsMobChannelsOpen }) => {
+const SidebarMobNav: React.FC<{ isMobChannelsOpen: boolean, onSetIsMobChannelsOpen: (flag: boolean) => void }> = ({ isMobChannelsOpen, onSetIsMobChannelsOpen }) => {
+
+  function handleClick() {
+    onSetIsMobChannelsOpen(!isMobChannelsOpen)
+  }
+
   return (
     <div
       className={`${styles.openChannelsBtn} ${isMobChannelsOpen ? styles.open : ''}`}
-      onClick={() => onSetIsMobChannelsOpen(state => !state)}
+      onClick={handleClick}
     >
       <svg width="21" height="19" viewBox="0 0 21 19" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M3.68257 15.38V19.0001L5.13886 18.1263L9.71632 15.38H14.2563C15.3166 15.38 16.1788 14.5178 16.1788 13.4575V5.76753C16.1788 4.70727 15.3166 3.84503 14.2563 3.84503H2.72132C1.66107 3.84503 0.798828 4.70727 0.798828 5.76753V13.4575C0.798828 14.5178 1.66107 15.38 2.72132 15.38H3.68257ZM2.72132 5.76753H14.2563V13.4575H9.18379L5.60507 15.6049V13.4575H2.72132V5.76753Z" fill="#717171"/>

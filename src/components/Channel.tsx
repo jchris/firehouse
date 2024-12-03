@@ -1,13 +1,11 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 import gravatar from 'gravatar'
 
 import { useFireproof } from 'use-fireproof'
-import { connect } from '@fireproof/partykit'
 import { Message } from './Message'
 import { MessageForm } from './MessageForm'
-import usePartySocket from 'partysocket/react'
 
 import type { MessageDoc, ReactionDoc } from '../types'
 
@@ -22,7 +20,7 @@ export const styles = {
     height: '100%',
     display: 'flex',
     flexDirection: 'column'
-  }
+  } as React.CSSProperties
 }
 
 const Thread: React.FC = () => {
@@ -40,17 +38,7 @@ const Channel: React.FC = () => {
 const InnerChannel: React.FC<{ id: string; thread?: MessageDoc }> = ({ id, thread }) => {
   const { database, useDocument, useLiveQuery } = useFireproof(id)
 
-  // @ts-expect-error does not exist
-  connect.partykitS3(database, PARTYKIT_HOST as string)
-
-  const socket = usePartySocket({
-    room: id,
-    onMessage(evt) {
-      console.log('Received message:', evt.data)
-    }
-  })
-
-  const [email, setEmail] = useState<string | null>(localStorage.getItem('email'))
+  const [email] = useState<string | null>(localStorage.getItem('email'))
   const gravatarUrl = email ? gravatar.url(email) : ''
 
   const [doc, setDoc, saveDoc] = useDocument<MessageDoc>(() => ({
@@ -95,8 +83,6 @@ const InnerChannel: React.FC<{ id: string; thread?: MessageDoc }> = ({ id, threa
         )
       saveDoc(doc)
       setDoc()
-    } else {
-      socket.send('Please enter a message')
     }
   }
 
@@ -112,7 +98,6 @@ const InnerChannel: React.FC<{ id: string; thread?: MessageDoc }> = ({ id, threa
 
   useEffect(scrollTo, [messages.docs.length])
 
-  const channelName = thread ? thread.message : id
 
   return (
     <>
@@ -129,7 +114,7 @@ const InnerChannel: React.FC<{ id: string; thread?: MessageDoc }> = ({ id, threa
                     gravatar={gravatarUrl}
                     database={database}
                     reactions={reactions as ReactionDoc[]}
-                    thread={false && !thread}
+                    thread={!thread && false}
                   />
                 )
               })}
