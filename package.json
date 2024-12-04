@@ -1,28 +1,34 @@
 {
-  "name": "react-fireproof",
-  "version": "0.0.0",
+  "name": "firehouse-chat",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "partykit dev --live",
-    "deploy": "partykit deploy"
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@fireproof/connect": "^0.17.4",
-    "@fireproof/core": "^0.17.5",
-    "@fireproof/partykit": "^0.17.5",
+    "@fireproof/core": "^0.19.115",
     "gravatar": "^1.8.2",
-    "openai": "^4.28.0",
-    "partysocket": "^0.0.25",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.0",
-    "use-fireproof": "^0.17.8"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.0.2",
+    "use-fireproof": "^0.19.115"
   },
   "devDependencies": {
+    "@eslint/js": "^9.15.0",
     "@types/gravatar": "^1.8.6",
-    "@types/react": "^18.2.55",
-    "@types/react-dom": "^18.2.19",
-    "partykit": "^0.0.85",
-    "typescript": "^5.3.3"
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.15.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "globals": "^15.12.0",
+    "typescript": "~5.6.2",
+    "typescript-eslint": "^8.15.0",
+    "vite": "^6.0.1"
   }
 }

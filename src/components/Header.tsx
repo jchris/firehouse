@@ -5,7 +5,7 @@ import styles from './Header.module.css'
 
 import { EmailForm } from './EmailForm'
 
-const Header: React.FC<{ email: string }> = ({ email, onSetEmail }) => {
+const Header: React.FC<{ email: string, onSetEmail: (email: string) => void }> = ({ email, onSetEmail }) => {
   const [inEmailOpen, setIsEmailOpen] = useState(false)
 
   function handleSetEmail(email: string) {
@@ -15,7 +15,7 @@ const Header: React.FC<{ email: string }> = ({ email, onSetEmail }) => {
   }
 
   function handleLogout() {
-    localStorage.removeItem('email', email)
+    localStorage.removeItem('email')
     onSetEmail('')
   }
 

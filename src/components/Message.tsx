@@ -50,7 +50,7 @@ const Message: React.FC<MessageProps> = ({ doc, gravatar, database, reactions, t
   }
 
   return (
-    <li className="message" className={styles.listItem}>
+    <li className={`message ${styles.listItem}`}>
       <img src={profileImg} alt="gravatar" className={styles.gravatar} />
       <div className={styles.messageWrap}>
         <p className={styles.message}>{message}</p>
@@ -83,7 +83,7 @@ import { Link } from 'react-router-dom'
 const EmojiPicker: React.FC<{ onEmojiSelect: (emoji: string) => void }> = ({ onEmojiSelect }) => {
   const [isOpen, setIsOpen] = useState(false)
 
-  function handleClick(e) {
+  function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
     if (!isOpen) {
       e.stopPropagation()
       setIsOpen(true)

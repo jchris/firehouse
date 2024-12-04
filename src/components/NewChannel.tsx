@@ -4,12 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import { useFireproof } from 'use-fireproof'
 
 import styles from './NewChannel.module.css'
+import {ChannelDoc} from "../types.ts";
 
-const NewChannel: React.FC<{ onSetIsNewChannelOpen: () => void }> = ({ onSetIsNewChannelOpen }) => {
-  const { database, useDocument, useLiveQuery } = useFireproof('_channels')
+const NewChannel: React.FC<{ onSetIsNewChannelOpen: (flag: boolean) => void }> = ({ onSetIsNewChannelOpen }) => {
+  const { useDocument } = useFireproof('_channels')
   const navigate = useNavigate()
 
-  const [doc, setDoc, saveDoc] = useDocument(() => ({
+  const [doc, setDoc, saveDoc] = useDocument<ChannelDoc>(() => ({
     created: Date.now(),
     name: '',
     description: ''
@@ -19,8 +20,8 @@ const NewChannel: React.FC<{ onSetIsNewChannelOpen: () => void }> = ({ onSetIsNe
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    if (name.trim() !== '' && description.trim() !== '') {
-      doc._id = 'channel:' + name
+    if (name!.trim() !== '' && description!.trim() !== '') {
+      doc._id! = 'channel:' + name
       saveDoc(doc)
       setDoc()
     }
@@ -36,8 +37,7 @@ const NewChannel: React.FC<{ onSetIsNewChannelOpen: () => void }> = ({ onSetIsNe
         <label
           htmlFor="channelName"
           className={styles.label}
-          >Channel Name:<
-        /label>
+          >Channel Name:</label>
         <input
           type="text"
           id="channelName"
@@ -51,8 +51,7 @@ const NewChannel: React.FC<{ onSetIsNewChannelOpen: () => void }> = ({ onSetIsNe
         <label
           htmlFor="channelDescription"
           className={styles.label}
-          >Description:<
-        /label>
+          >Description:</label>
         <input
           type="text"
           id="channelDescription"
